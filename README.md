@@ -23,4 +23,4 @@ Please read this article [Test-Driven Development: Really, It's a Design Techniq
 Comming soon, be patient 😁
 
 ## How it works? 🤔
-Each article is divided into steps, and in each step, I have managed to have a git commit for each TDD red-green-blue change. So, when navigating commits, we can notice the differences, and the refactoring is done toward final Kata requirements.
+Each article is divided into steps, and in each step, I have managed to have a git commit for each TDD *red-green-blue* change. So, when navigating commits, we can notice the differences, and the refactoring is done toward final Kata requirements.
