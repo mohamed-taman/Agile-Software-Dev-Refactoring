@@ -6,18 +6,19 @@ Please read this article [Test-Driven Development: Really, It's a Design Techniq
 
 ***This repository hosts all 3 Java Magazine articles series source-code.***
 
-## Here are what you gonna learn from these articles:
-1. **Refactoring New Code**
+## Here are what you are going to learn from these articles:
+1. **Refactoring with New Code**
     1. Defining refactoring
     1. Setting up a TDD environment
     1. Renaming variables
     1. Using the inline and extract method
-1. **Stablizing Legacy Code**
+1. **Stabilizing Legacy Code**
     1. Pinning down legacy code
     1. Testing code and branch coverage
 1. **Refactoring legacy code**
     1. Simplifying math and Booleans
     1. Adding new behaviors to refactored code
+
 
 ## Link To Articles
 Comming soon, be patient 😁
