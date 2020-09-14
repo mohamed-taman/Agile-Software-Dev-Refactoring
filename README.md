@@ -1,7 +1,7 @@
 # Agile Software Development: Refactoring
 Refactoring for high-performance Agile Software Development. Refactoring for better code. Refactoring is about improving the quality of your code by simplifying your code. Simpler code enables agility, the ability to change your code quickly, to add new features, to meet people's ever changing needs.
 
-I am using a test-driven development methodology & techniques here for a full understanding of what is it all about? And why is it important?
+I am using a test-driven development practice of writing tests first here. For a full understanding of what is it all about? And why is it important?
 Please read this article [Test-Driven Development: Really, It's a Design Technique](https://www.infoq.com/articles/test-driven-design-java/).
 
 ***This repository hosts all 3 Java Magazine articles series source-code.***
