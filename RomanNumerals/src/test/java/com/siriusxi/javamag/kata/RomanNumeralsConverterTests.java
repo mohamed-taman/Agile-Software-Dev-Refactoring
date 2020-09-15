@@ -13,11 +13,8 @@ public class RomanNumeralsConverterTests {
 
     @Test
     public void convertsSingleRomanDigit(){
-        int arabic = convert("I");
+        int arabic = RomanNumeralsConverter.convert("I");
         assertEquals(1, arabic);
     }
 
-    private static int convert(String romanNumeral) {
-        return 1;
-    }
 }
