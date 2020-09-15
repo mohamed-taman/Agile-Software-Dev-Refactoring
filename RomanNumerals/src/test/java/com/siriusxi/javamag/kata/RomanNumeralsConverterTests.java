@@ -21,4 +21,10 @@ public class RomanNumeralsConverterTests {
     assertEquals(500, RomanNumeralsConverter.convert("D"));
     assertEquals(1000, RomanNumeralsConverter.convert("M"));
   }
+
+  @Test public void romanNumeralAddition(){
+    assertEquals(2, RomanNumeralsConverter.convert("II"));
+    assertEquals(3, RomanNumeralsConverter.convert("III"));
+    assertEquals(6, RomanNumeralsConverter.convert("VI"));
+  }
 }

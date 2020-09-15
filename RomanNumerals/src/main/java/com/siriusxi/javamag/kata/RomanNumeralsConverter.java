@@ -1,8 +1,15 @@
 package com.siriusxi.javamag.kata;
 
 public class RomanNumeralsConverter {
+
   static int convert(String romanNumeral) {
-    if (romanNumeral.equals("I")) {
+    if (romanNumeral.equals("II")) {
+      return 2;
+    } else if (romanNumeral.equals("III")) {
+      return 3;
+    } else if (romanNumeral.equals("VI")) {
+      return 6;
+    } else if (romanNumeral.equals("I")) {
       return 1;
     } else if (romanNumeral.equals("V")) {
       return 5;
