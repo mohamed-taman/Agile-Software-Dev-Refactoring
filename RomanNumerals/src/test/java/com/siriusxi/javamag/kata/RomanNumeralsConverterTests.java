@@ -17,7 +17,7 @@ public class RomanNumeralsConverterTests {
         assertEquals(1, arabic);
     }
 
-    private int convert(String i) {
+    private int convert(String romanNumeral) {
         return 1;
     }
 }
