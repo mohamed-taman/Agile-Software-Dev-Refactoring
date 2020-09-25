@@ -43,4 +43,44 @@ class GildedRoseTest {
     Item item = createAndUpdate("Aged Brie", 15, 25);
     assertEquals(26, item.quality);
   }
+
+  @Test
+  void qualityNeverMoreThan50() {
+    Item item = createAndUpdate("foo", 15, 52);
+    assertEquals(51, item.quality); // can exceed 50 if input exceeds 50
+
+    item = createAndUpdate("Aged Brie", 15, 50);
+    assertEquals(50, item.quality);
+  }
+
+  @Test
+  void sulfurasNeverHasToBeSoldOrDecreasesInQuality() {
+    Item item = createAndUpdate("Sulfuras, Hand of Ragnaros", 1, 42);
+    assertEquals(1, item.sellIn); // sellIn doesn't change
+    assertEquals(42, item.quality); // quality doesn't change
+  }
+
+  @Test
+  void backstagePassesIncreaseInQuality() {
+    Item item = createAndUpdate("Backstage passes to a TAFKAL80ETC concert", 15, 25);
+    assertEquals(26, item.quality);
+  }
+
+  @Test
+  void backstagePassesIncreaseBy2() {
+    Item item = createAndUpdate("Backstage passes to a TAFKAL80ETC concert", 10, 25);
+    assertEquals(27, item.quality);
+  }
+
+  @Test
+  void backstagePassesIncreaseBy3() {
+    Item item = createAndUpdate("Backstage passes to a TAFKAL80ETC concert", 5, 25);
+    assertEquals(28, item.quality);
+  }
+
+  @Test
+  void backstagePassesQualityDropTo0() {
+    Item item = createAndUpdate("Backstage passes to a TAFKAL80ETC concert", 0, 25);
+    assertEquals(0, item.quality);
+  }
 }
