@@ -83,4 +83,11 @@ class GildedRoseTest {
     Item item = createAndUpdate("Backstage passes to a TAFKAL80ETC concert", 0, 25);
     assertEquals(0, item.quality);
   }
+
+  @Test
+  void agedBrieNeverExpires() {
+    Item item = createAndUpdate("Aged Brie", 0, 42);
+    assertEquals(-1, item.sellIn);
+    assertEquals(44, item.quality);
+  }
 }
