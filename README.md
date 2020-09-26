@@ -19,9 +19,11 @@ Please read this article [Test-Driven Development: Really, It's a Design Techniq
     1. Simplifying math and Booleans
     1. Adding new behaviors to refactored code
 
+### The Legacy code
+We will work on a kata called [**Gilded Rose**, written by Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
 ## Link To Articles
 Comming soon, be patient 😁
 
 ## How it works? 🤔
-Each article is divided into steps, and in each step, I have managed to have a git commit for each TDD *red-green-blue* change. So, when navigating commits, we can notice the differences, and the refactoring is done toward final Kata requirements.
+Each article is divided into steps, and in each step, I have managed to have a git commit for each TDD *red-green-blue* change. So, when you navigate the commits, you can notice the differences, and the refactorings that hass been done toward final Kata requirements.
