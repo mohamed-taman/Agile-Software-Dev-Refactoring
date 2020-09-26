@@ -98,5 +98,23 @@ class GildedRoseTest {
 
     item = createAndUpdate("Backstage passes to a TAFKAL80ETC concert", 10, 49);
     assertEquals(50, item.quality);
+
+    item = createAndUpdate("Backstage passes to a TAFKAL80ETC concert", 5, 49);
+    assertEquals(50, item.quality);
+  }
+
+  @Test
+  void degradeInQualityUnlessSulfuras() {
+    Item item = createAndUpdate("foo", -1, 1);
+    assertEquals(0, item.quality);
+
+    item = createAndUpdate("Sulfuras, Hand of Ragnaros", -1, 1);
+    assertEquals(1, item.quality);
+  }
+
+  @Test
+  void agedBrieMaximumQuality() {
+    Item item = createAndUpdate("Aged Brie", -1, 49);
+    assertEquals(50, item.quality);
   }
 }
