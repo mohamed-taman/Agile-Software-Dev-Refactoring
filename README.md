@@ -19,8 +19,8 @@ Please read this article [Test-Driven Development: Really, It's a Design Techniq
     1. Simplifying math and Booleans
     1. Adding new behaviors to refactored code
 
-### The Legacy code
-We will work on a kata called [**Gilded Rose**, written by Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata).
+### The Legacy code Kata
+The legacy code kata I used it here in these articles series is inspired from [**Gilded Rose Kata**, written by Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
 ## Link To Articles
 Comming soon, be patient 😁
