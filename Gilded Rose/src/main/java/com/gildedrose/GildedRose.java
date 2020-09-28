@@ -20,23 +20,23 @@ class GildedRose {
                     && !isBackstagePasses(item)) {
                 if (item.quality > 0) {
                     if (!isSulfuras(item)) {
-                        item.quality = item.quality - 1;
+                        item.quality--;
                     }
                 }
             } else {
                 if (item.quality < MAXIMUM_QUALITY) {
-                    item.quality = item.quality + 1;
+                    item.quality++;
 
                     if (isBackstagePasses(item)) {
                         if (item.sellIn < BACKSTAGE_PASS_THRESHOLD1) {
                             if (item.quality < MAXIMUM_QUALITY) {
-                                item.quality = item.quality + 1;
+                                item.quality++;
                             }
                         }
 
                         if (item.sellIn < BACKSTAGE_PASS_THRESHOLD2) {
                             if (item.quality < MAXIMUM_QUALITY) {
-                                item.quality = item.quality + 1;
+                                item.quality++;
                             }
                         }
                     }
@@ -44,7 +44,7 @@ class GildedRose {
             }
 
             if (!isSulfuras(item)) {
-                item.sellIn = item.sellIn - 1;
+                item.sellIn--;
             }
 
             if (item.sellIn < 0) {
@@ -52,15 +52,15 @@ class GildedRose {
                     if (!isBackstagePasses(item)) {
                         if (item.quality > 0) {
                             if (!isSulfuras(item)) {
-                                item.quality = item.quality - 1;
+                                item.quality--;
                             }
                         }
                     } else {
-                        item.quality = item.quality - item.quality;
+                        item.quality = 0;
                     }
                 } else {
                     if (item.quality < MAXIMUM_QUALITY) {
-                        item.quality = item.quality + 1;
+                        item.quality++;
                     }
                 }
             }
