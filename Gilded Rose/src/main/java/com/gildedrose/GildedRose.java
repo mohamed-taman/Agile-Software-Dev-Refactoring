@@ -16,10 +16,10 @@ class GildedRose {
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             final Item item = items[i];
-            if (!item.name.equals(AGED_BRIE)
-                    && !item.name.equals(BACKSTAGE_PASSES)) {
+            if (!isAgedBrie(item)
+                    && !isBackstagePasses(item)) {
                 if (item.quality > 0) {
-                    if (!item.name.equals(SULFURAS)) {
+                    if (!isSulfuras(item)) {
                         item.quality = item.quality - 1;
                     }
                 }
@@ -27,7 +27,7 @@ class GildedRose {
                 if (item.quality < MAXIMUM_QUALITY) {
                     item.quality = item.quality + 1;
 
-                    if (item.name.equals(BACKSTAGE_PASSES)) {
+                    if (isBackstagePasses(item)) {
                         if (item.sellIn < BACKSTAGE_PASS_THRESHOLD1) {
                             if (item.quality < MAXIMUM_QUALITY) {
                                 item.quality = item.quality + 1;
@@ -43,15 +43,15 @@ class GildedRose {
                 }
             }
 
-            if (!item.name.equals(SULFURAS)) {
+            if (!isSulfuras(item)) {
                 item.sellIn = item.sellIn - 1;
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals(AGED_BRIE)) {
-                    if (!item.name.equals(BACKSTAGE_PASSES)) {
+                if (!isAgedBrie(item)) {
+                    if (!isBackstagePasses(item)) {
                         if (item.quality > 0) {
-                            if (!item.name.equals(SULFURAS)) {
+                            if (!isSulfuras(item)) {
                                 item.quality = item.quality - 1;
                             }
                         }
@@ -65,5 +65,17 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isBackstagePasses(Item item) {
+        return item.name.equals(BACKSTAGE_PASSES);
+    }
+
+    private boolean isSulfuras(Item item) {
+        return item.name.equals(SULFURAS);
+    }
+
+    private boolean isAgedBrie(Item item) {
+        return item.name.equals(AGED_BRIE);
     }
 }
