@@ -48,12 +48,12 @@ class GildedRoseTest {
   }
 
   @Test
-  void qualityNeverMoreThan50() {
+  void qualityNeverMoreThanMaximumQuality() {
     Item item = createAndUpdate(FOO, 15, 52);
     assertEquals(51, item.quality); // can exceed 50 if input exceeds 50
 
-    item = createAndUpdate(AGED_BRIE, 15, 50);
-    assertEquals(50, item.quality);
+    item = createAndUpdate(AGED_BRIE, 15, MAXIMUM_QUALITY);
+    assertEquals(MAXIMUM_QUALITY, item.quality);
   }
 
   @Test
@@ -97,13 +97,13 @@ class GildedRoseTest {
   @Test
   void backstagePassMaximumQuality() {
     Item item = createAndUpdate(BACKSTAGE_PASSES, 10, 48);
-    assertEquals(50, item.quality);
+    assertEquals(MAXIMUM_QUALITY, item.quality);
 
     item = createAndUpdate(BACKSTAGE_PASSES, 10, 49);
-    assertEquals(50, item.quality);
+    assertEquals(MAXIMUM_QUALITY, item.quality);
 
     item = createAndUpdate(BACKSTAGE_PASSES, 5, 49);
-    assertEquals(50, item.quality);
+    assertEquals(MAXIMUM_QUALITY, item.quality);
   }
 
   @Test
@@ -118,6 +118,6 @@ class GildedRoseTest {
   @Test
   void agedBrieMaximumQuality() {
     Item item = createAndUpdate(AGED_BRIE, -1, 49);
-    assertEquals(50, item.quality);
+    assertEquals(MAXIMUM_QUALITY, item.quality);
   }
 }
