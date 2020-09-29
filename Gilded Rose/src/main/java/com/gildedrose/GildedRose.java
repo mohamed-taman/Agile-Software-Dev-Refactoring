@@ -16,14 +16,8 @@ class GildedRose {
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             final Item item = items[i];
-            if (!isAgedBrie(item)
-                    && !isBackstagePasses(item)) {
-                if (item.quality > 0) {
-                    if (!isSulfuras(item)) {
-                        item.quality--;
-                    }
-                }
-            } else {
+            if (isAgedBrie(item)
+                    || isBackstagePasses(item)) {
                 if (item.quality < MAXIMUM_QUALITY) {
                     item.quality++;
 
@@ -41,26 +35,37 @@ class GildedRose {
                         }
                     }
                 }
+                } else {
+                if (item.quality > 0) {
+                    if (isSulfuras(item)) {
+                        continue;
+                    } else {
+                        item.quality--;
+                    }
+                }
             }
 
-            if (!isSulfuras(item)) {
+            if (isSulfuras(item)) {
+                continue;
+            } else {
                 item.sellIn--;
             }
 
             if (item.sellIn < 0) {
-                if (!isAgedBrie(item)) {
-                    if (!isBackstagePasses(item)) {
-                        if (item.quality > 0) {
-                            if (!isSulfuras(item)) {
-                                item.quality--;
-                            }
-                        }
-                    } else {
-                        item.quality = 0;
-                    }
-                } else {
+                if (isAgedBrie(item)) {
                     if (item.quality < MAXIMUM_QUALITY) {
                         item.quality++;
+                    }
+                    } else {
+                    if (isBackstagePasses(item)) {
+                        item.quality = 0;
+                        } else {
+                        if (item.quality > 0) {
+                            if (isSulfuras(item)) {
+                                continue;
+                            }
+                            item.quality--;
+                        }
                     }
                 }
             }
