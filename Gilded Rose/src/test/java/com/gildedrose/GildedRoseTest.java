@@ -120,4 +120,11 @@ class GildedRoseTest {
     Item item = createAndUpdate(AGED_BRIE, -1, 49);
     assertEquals(MAXIMUM_QUALITY, item.quality);
   }
+
+  @Test
+  void conjuredDegradeTwiceAsFast() {
+    Item item = createAndUpdate(CONJURED, 15, 25);
+    assertEquals(23, item.quality);
+  }
+
 }
