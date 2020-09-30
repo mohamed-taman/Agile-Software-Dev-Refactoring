@@ -17,13 +17,21 @@ class GildedRose {
   public void updateQuality() {
     for (final Item item : items) {
       handleIfNormalItem(item);
-      handleIfAgedBrie(item);
-      handleIfBackstagePasses(item);
-      handleIfSulfuras(item);
+      handleIfAgedBrieItem(item);
+      handleIfBackstagePassesItem(item);
+      handleIfSulfurasItem(item);
+      handleIfConjuredItem(item);
     }
   }
 
-  private void handleIfSulfuras(Item item) {
+  private void handleIfConjuredItem(Item item) {
+    if (isConjured(item)) {
+      item.sellIn--;
+      item.quality = item.quality - 2;
+    }
+  }
+
+  private void handleIfSulfurasItem(Item item) {
     if (isSulfuras(item)) {
       // We always write the least amount of code to make the pin-down
       // tests go green. In this case, we didn't have to write any
@@ -31,7 +39,7 @@ class GildedRose {
     }
   }
 
-  private void handleIfBackstagePasses(Item item) {
+  private void handleIfBackstagePassesItem(Item item) {
     if (isBackstagePasses(item)) {
       item.sellIn--;
       if (item.sellIn <= 0) {
@@ -49,7 +57,7 @@ class GildedRose {
     }
   }
 
-  private void handleIfAgedBrie(Item item) {
+  private void handleIfAgedBrieItem(Item item) {
     if (isAgedBrie(item)) {
       item.sellIn--;
       if (item.sellIn <= 0) {
@@ -76,7 +84,14 @@ class GildedRose {
   }
 
   private boolean isNormalItem(Item item) {
-    return !(isAgedBrie(item) || isBackstagePasses(item) || isSulfuras(item));
+    return !(isAgedBrie(item) ||
+            isBackstagePasses(item) ||
+            isSulfuras(item) ||
+            isConjured(item));
+  }
+
+  private boolean isConjured(Item item) {
+    return item.name.equals(CONJURED);
   }
 
   private boolean isBackstagePasses(Item item) {
