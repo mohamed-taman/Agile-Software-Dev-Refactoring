@@ -14,62 +14,64 @@ class GildedRose {
   }
 
   public void updateQuality() {
-    for (int i = 0; i < items.length; i++) {
-      final Item item = items[i];
-      if (isNormalItem(item)) {
-        handleNormalItem(item);
-      } else if (isAgedBrie(item)) {
-        handleAgedBrie(item);
-      } else if (isBackstagePasses(item)) {
-        handleBackstagePasses(item);
-      } else if (isSulfuras(item)) {
-        handleSulfuras(item);
+    for (final Item item : items) {
+      handleIfNormalItem(item);
+      handleIfAgedBrie(item);
+      handleIfBackstagePasses(item);
+      handleIfSulfuras(item);
+    }
+  }
+
+  private void handleIfSulfuras(Item item) {
+    if (isSulfuras(item)) {
+      // We always write the least amount of code to make the pin-down
+      // tests go green. In this case, we didn't have to write any
+      // code -- so this is the correct solution.
+    }
+  }
+
+  private void handleIfBackstagePasses(Item item) {
+    if (isBackstagePasses(item)) {
+      item.sellIn--;
+      if (item.sellIn <= 0) {
+        item.quality = 0;
+      } else if (item.sellIn < BACKSTAGE_PASS_THRESHOLD2) {
+        item.quality = item.quality + 3;
+      } else if (item.sellIn < BACKSTAGE_PASS_THRESHOLD1) {
+        item.quality = item.quality + 2;
+      } else {
+        item.quality++;
+      }
+      if (item.quality > MAXIMUM_QUALITY) {
+        item.quality = MAXIMUM_QUALITY;
       }
     }
   }
 
-  private void handleSulfuras(Item item) {
-    // We always write the least amount of code to make the pin-down
-    // tests go green. In this case, we didn't have to write any
-    // code -- so this is the correct solution.
-  }
-
-  private void handleBackstagePasses(Item item) {
-    item.sellIn--;
-    if (item.sellIn <= 0) {
-      item.quality = 0;
-    } else if (item.sellIn < BACKSTAGE_PASS_THRESHOLD2) {
-      item.quality = item.quality + 3;
-    } else if (item.sellIn < BACKSTAGE_PASS_THRESHOLD1) {
-      item.quality = item.quality + 2;
-    } else {
-      item.quality++;
-    }
-    if (item.quality > MAXIMUM_QUALITY) {
-      item.quality = MAXIMUM_QUALITY;
+  private void handleIfAgedBrie(Item item) {
+    if (isAgedBrie(item)) {
+      item.sellIn--;
+      if (item.sellIn <= 0) {
+        item.quality = item.quality + 2;
+      } else {
+        item.quality++;
+      }
+      if (item.quality > MAXIMUM_QUALITY) {
+        item.quality = MAXIMUM_QUALITY;
+      }
     }
   }
 
-  private void handleAgedBrie(Item item) {
-    item.sellIn--;
-    if (item.sellIn <= 0) {
-      item.quality = item.quality + 2;
-    } else {
-      item.quality++;
+  private void handleIfNormalItem(Item item) {
+    if (isNormalItem(item)) {
+      item.sellIn--;
+      if (item.sellIn <= 0) {
+        item.quality -= 2;
+      } else {
+        item.quality--;
+      }
+      if (item.quality < 0) item.quality = 0;
     }
-    if (item.quality > MAXIMUM_QUALITY) {
-      item.quality = MAXIMUM_QUALITY;
-    }
-  }
-
-  private void handleNormalItem(Item item) {
-    item.sellIn--;
-    if (item.sellIn <= 0) {
-      item.quality -= 2;
-    } else {
-      item.quality--;
-    }
-    if (item.quality < 0) item.quality = 0;
   }
 
   private boolean isNormalItem(Item item) {
