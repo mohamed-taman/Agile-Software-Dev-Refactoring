@@ -24,59 +24,6 @@ class GildedRose {
         handleBackstagePasses(item);
       } else if (isSulfuras(item)) {
         handleSulfuras(item);
-      } else {
-        if (isAgedBrie(item) || isBackstagePasses(item)) {
-          if (item.quality < MAXIMUM_QUALITY) {
-            item.quality++;
-
-            if (isBackstagePasses(item)) {
-              if (item.sellIn < BACKSTAGE_PASS_THRESHOLD1) {
-                if (item.quality < MAXIMUM_QUALITY) {
-                  item.quality++;
-                }
-              }
-
-              if (item.sellIn < BACKSTAGE_PASS_THRESHOLD2) {
-                if (item.quality < MAXIMUM_QUALITY) {
-                  item.quality++;
-                }
-              }
-            }
-          }
-        } else {
-          if (item.quality > 0) {
-            if (isSulfuras(item)) {
-              continue;
-            } else {
-              item.quality--;
-            }
-          }
-        }
-
-        if (isSulfuras(item)) {
-          continue;
-        } else {
-          item.sellIn--;
-        }
-
-        if (item.sellIn < 0) {
-          if (isAgedBrie(item)) {
-            if (item.quality < MAXIMUM_QUALITY) {
-              item.quality++;
-            }
-          } else {
-            if (isBackstagePasses(item)) {
-              item.quality = 0;
-            } else {
-              if (item.quality > 0) {
-                if (isSulfuras(item)) {
-                  continue;
-                }
-                item.quality--;
-              }
-            }
-          }
-        }
       }
     }
   }
