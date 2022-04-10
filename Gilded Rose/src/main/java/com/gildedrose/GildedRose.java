@@ -84,10 +84,7 @@ class GildedRose {
   }
 
   private boolean isNormalItem(Item item) {
-    return !(isAgedBrie(item) ||
-            isBackstagePasses(item) ||
-            isSulfuras(item) ||
-            isConjured(item));
+    return !(isAgedBrie(item) || isBackstagePasses(item) || isSulfuras(item) || isConjured(item));
   }
 
   private boolean isConjured(Item item) {
