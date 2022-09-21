@@ -28,4 +28,4 @@ The legacy code kata I used it here in these articles series is inspired from [*
 1. [Refactoring Java, Part 3: Regaining business agility by simplifying legacy code](https://blogs.oracle.com/javamagazine/refactoring-java-part-3-regaining-business-agility-by-simplifying-legacy-code).
 
 ## How it works? 🤔
-Each article is divided into steps, and in each step, I have managed to have a git commit for each TDD *red-green-blue* change. So, when you navigate the commits, you can notice the differences, and the refactorings that hass been done toward final Kata requirements.
+Each article is divided into steps, and in each step, I have managed to have a git commit for each TDD *red-green-blue* change. So, when you navigate the commits, you can notice the differences, and the refactorings that has been done toward final Kata requirements.
